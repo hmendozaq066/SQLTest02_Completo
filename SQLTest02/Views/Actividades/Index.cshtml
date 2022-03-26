@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SQLTest02.Models.Actividad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Actividades</h4>
+
+<p>
+    <a asp-action="Create">Agregar</a>
+</p>
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                 @Html.DisplayNameFor(model => model.Actividad_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detalles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resuelto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Actividad_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detalles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resuelto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado.Descripcion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Actividad_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Actividad_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Actividad_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
